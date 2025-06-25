@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SecondaryStory = ({ id, title, image, location, abstract }) => {
+import { COLORS, QUERIES } from '../../constants';
+
+const SecondaryStory = ({ id, title, image, location, abstract, className }) => {
   return (
-    <a href={`/story/${id}`}>
+    <Link href={`/story/${id}`} className={className}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
       </Wrapper>
-    </a>
+    </Link>
   );
 };
 
@@ -45,6 +47,18 @@ const Abstract = styled.p`
   grid-area: abstract;
   font-size: 1rem;
   white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  overflow: hidden;
+  @media ${QUERIES.tabletAndUp} {
+    -webkit-line-clamp: 13;
+  }
+  @media ${QUERIES.laptopAndUp} {
+    -webkit-line-clamp: 6;
+  }
 `;
+
+const Link = styled.a``;
 
 export default SecondaryStory;

@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const OpinionStory = ({ id, title, author, avatar }) => {
+import { QUERIES } from '../../constants'
+
+const OpinionStory = ({ id, title, author, avatar, className }) => {
   return (
-    <a href={`/story/${id}`}>
+    <Link href={`/story/${id}`} className={className}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
         <div>
@@ -11,7 +13,7 @@ const OpinionStory = ({ id, title, author, avatar }) => {
           <ArticleTitle>{title}</ArticleTitle>
         </div>
       </Wrapper>
-    </a>
+    </Link>
   );
 };
 
@@ -39,5 +41,7 @@ const ArticleTitle = styled.h3`
   font-weight: var(--font-weight-bold);
   line-height: 1.3;
 `;
+
+const Link = styled.a``;
 
 export default OpinionStory;

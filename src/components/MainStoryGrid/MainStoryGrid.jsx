@@ -7,11 +7,16 @@ import {
   SECONDARY_STORIES,
 } from '../../data';
 
+import { COLORS, QUERIES } from '../../constants';
+
 import SectionTitle from '../SectionTitle';
 import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
 import OpinionStory from '../OpinionStory';
 import Advertisement from '../Advertisement';
+
+const StyledSecondaryStory = styled(SecondaryStory)``;
+const StyledOpinionStory = styled(OpinionStory)``;
 
 const MainStoryGrid = () => {
   return (
@@ -23,7 +28,7 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <StyledSecondaryStory key={story.id} {...story} />
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +37,7 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <StyledOpinionStory key={story.id} {...story} />
           ))}
         </StoryList>
       </OpinionSection>
@@ -66,10 +71,35 @@ const SecondaryStorySection = styled.section`
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+  ${StyledSecondaryStory} {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    &:not(:first-child) {
+      border-top: 1px solid ${COLORS.gray[300]};
+    };
+  };
+  ${StyledOpinionStory} {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    &:not(:first-child) {
+      border-top: 1px solid ${COLORS.gray[300]};
+    };
+  };
 `;
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+  @media ${QUERIES.tabletOnly} {
+    ${StoryList} {
+      flex-direction: row;
+    }
+
+    ${StyledOpinionStory} {
+      &:not(:first-child) {
+        border-top: none;
+      };
+    };
+  }
 `;
 
 const AdvertisementSection = styled.section`
