@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MiniStory = ({ id, image, title }) => {
+const MiniStory = ({ id, image, title, className }) => {
   return (
-    <a href={`/story/${id}`}>
+    <a href={`/story/${id}`} className={className}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Title>{title}</Title>
