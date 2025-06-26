@@ -106,9 +106,8 @@ const OpinionSection = styled.section`
   };
   @media ${QUERIES.tabletOnly} {
     ${StoryList} {
-      // display: grid;
-      // grid-template-columns: repeat(4, 172px);
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(4, 172px);
       justify-content: space-between;
     }
 

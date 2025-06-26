@@ -35,7 +35,7 @@ const Wrapper = styled.article`
     margin-left: 16px;
   }
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.tabletOnly} {
     flex-direction: column;
     ${Avatar} {
       margin-left: 0px;
