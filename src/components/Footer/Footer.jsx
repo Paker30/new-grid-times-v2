@@ -149,6 +149,10 @@ const TopRow = styled.div`
     flex-direction: row;
     justify-content: space-around;
   }
+  @media ${QUERIES.laptopAndUp}{
+    flex-direction: row;
+    justify-content: end;
+  }
 `;
 
 const Social = styled.div`
@@ -180,6 +184,11 @@ const MainNavArea = styled.div`
     text-align: left;
     flex-wrap: wrap;
   }
+  @media ${QUERIES.laptopAndUp}{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: left;
+  }
 `;
 
 const MainNavHeading = styled.h2`
@@ -206,6 +215,9 @@ const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media ${QUERIES.laptopAndUp}{
+    align-items: flex-start;
+  }
 `;
 
 const Logo = styled.a`
